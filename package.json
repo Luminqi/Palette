@@ -1,0 +1,21 @@
+{
+  "name": "color-extract",
+  "version": "1.0.0",
+  "description": "",
+  "main": "color.js",
+  "scripts": {
+    "start": "parcel test.html"
+  },
+  "author": "luminqi",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-env": "^7.1.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "parcel-bundler": "^1.10.3"
+  }
+}
