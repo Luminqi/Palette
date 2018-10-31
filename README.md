@@ -2,7 +2,7 @@
 
 Find the dominant colors in an image.
 
-[see the demo](https://palette.luminqi.com/)
+[see the demo](https://color.luminqi.com/)
 
 # How to use
 
