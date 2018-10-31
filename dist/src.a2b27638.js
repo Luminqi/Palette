@@ -374,7 +374,7 @@ function mergeBins(binArr) {
       return;
     }
 
-    if (binArr[i].trivial || getDistance(binArr[i + 1].average, binArr[i].average) <= 25) {
+    if (binArr[i].trivial || getDistance(binArr[i + 1].average, binArr[i].average) <= 36) {
       binArr[i + 1].merge(binArr[i]);
       binArr.splice(i, 1);
       length = length - 1;
@@ -550,7 +550,7 @@ input.addEventListener('change', displayPalette);
 function displayPalette() {
   var image = input.files[0];
   var src = window.URL.createObjectURL(image);
-  imgContainer.innerHTML = "<img src=".concat(src, " />");
+  imgContainer.innerHTML = "<img class='img' src=".concat(src, " />");
   Palette.from(src).getPalette().then(function (colors) {
     console.log(colors);
     var children = colors.reduce(function (prev, color) {
@@ -559,11 +559,25 @@ function displayPalette() {
           g = _color$value[1],
           b = _color$value[2];
 
-      return "".concat(prev, "<div style='width: 50px; height: 50px; background-color: rgb(").concat(r, ", ").concat(g, ", ").concat(b, ")'></div>");
+      return "".concat(prev, "<div class='color' style='background-color: rgb(").concat(r, ", ").concat(g, ", ").concat(b, ")'></div>");
     }, '');
     container.innerHTML = children;
   });
 }
+
+var img = document.getElementsByClassName('img')[0];
+Palette.from(img).getPalette().then(function (colors) {
+  console.log(colors);
+  var children = colors.reduce(function (prev, color) {
+    var _color$value2 = _slicedToArray(color.value, 3),
+        r = _color$value2[0],
+        g = _color$value2[1],
+        b = _color$value2[2];
+
+    return "".concat(prev, "<div class='color' style='background-color: rgb(").concat(r, ", ").concat(g, ", ").concat(b, ")'></div>");
+  }, '');
+  container.innerHTML = children;
+});
 },{"./color":"src/color.js","./getPalette":"src/getPalette.js","./worker.js":[["worker.f6f31b3e.js","src/worker.js"],"worker.f6f31b3e.map","src/worker.js"]}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -591,7 +605,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "11894" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1189" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

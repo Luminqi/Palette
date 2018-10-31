@@ -1,0 +1,113 @@
+html {
+  font-size: 20px
+}
+
+body {
+  background-color: #f3f3f3;
+}
+
+h1 {
+  text-align: center
+}
+
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px 0;
+}
+
+#input {
+  display: none
+}
+
+#imgContainer {
+  width: 30rem;
+  
+}
+
+.img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+
+.caption {
+  width: 30rem;
+  text-align: center;
+  padding: 20px 0;
+  background-color: #ffffff;
+}
+
+#container {
+  width: 30rem;
+  min-height: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.color {
+  width: 4rem;
+  height: 2rem;
+  margin: 1px;
+}
+
+#button-wrapper {
+  position: relative;
+  margin: 0 0 50px;
+}
+
+#button {
+  font-family: "Gilroy ExtraBold", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: 2px;
+  font-size: 22px;
+  text-transform: uppercase;
+  background-color: #f4157e;
+  color: #ffffff;
+  appearance: none;
+  border: none;
+  border-radius: 10px;
+  width: 200px;
+  height: 80px;
+  box-shadow: 0 10px 60px -10px #cd106e;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform: perspective(250px) scale3d(1,1,1);
+  transition: all 1s cubic-bezier(0.03,0.98,0.52,0.99);
+  will-change: transform, box-shadow, background-color;
+  outline: none;
+  position: relative;
+  z-index:2;
+}
+
+#button:hover {
+  background-color: #f82487;
+  box-shadow: 0 8px 65px -8px #cd106e;
+}
+
+#button:active {
+  background-color: #cd106e;  
+  box-shadow: 0 10px 60px -10px #cd106e;
+  transform: perspective(250px) scale3d(1, 1, 1) translateY(5%) !important;
+}
+
+
+.symbol {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  z-index: -1;
+  animation: explode .8s ease-in reverse forwards;
+}
+
+@keyframes explode {
+  from { opacity: 0; }
+  to {
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+  }
+}

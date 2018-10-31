@@ -302,7 +302,7 @@ function mergeBins(binArr) {
       return;
     }
 
-    if (binArr[i].trivial || getDistance(binArr[i + 1].average, binArr[i].average) <= 25) {
+    if (binArr[i].trivial || getDistance(binArr[i + 1].average, binArr[i].average) <= 36) {
       binArr[i + 1].merge(binArr[i]);
       binArr.splice(i, 1);
       length = length - 1;
@@ -426,7 +426,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "11894" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1189" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

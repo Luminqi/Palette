@@ -133,7 +133,7 @@ function mergeBins (binArr) {
     if (length === 1) {
       return
     }
-    if (binArr[i].trivial || getDistance(binArr[i + 1].average, binArr[i].average) <= 25) {
+    if (binArr[i].trivial || getDistance(binArr[i + 1].average, binArr[i].average) <= 36) {
       binArr[i + 1].merge(binArr[i])
       binArr.splice(i, 1)
       length = length - 1
