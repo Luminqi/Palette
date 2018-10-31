@@ -2,6 +2,8 @@
 
 Find the dominant colors in an image.
 
+[see the demo](https://palette.luminqi.com/)
+
 # How to use
 
 Palette.from can accept &lt;img&gt; element or path

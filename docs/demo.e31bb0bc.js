@@ -104,7 +104,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({"../palette/color.js":[function(require,module,exports) {
+})({"../palette/graph.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -470,7 +470,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Palette = void 0;
 
-var _color = require("./color");
+var _graph = require("./graph");
 
 var _getPalette = require("./getPalette");
 
@@ -482,7 +482,7 @@ var Palette = function () {
   var imagePromise = null;
 
   var from = function from(image) {
-    imagePromise = new _color.Graph().load(image);
+    imagePromise = new _graph.Graph().load(image);
     return this;
   };
 
@@ -540,7 +540,7 @@ var Palette = function () {
 }();
 
 exports.Palette = Palette;
-},{"./color":"../palette/color.js","./getPalette":"../palette/getPalette.js","./worker.js":[["worker.451bb653.js","../palette/worker.js"],"worker.451bb653.map","../palette/worker.js"]}],"index.js":[function(require,module,exports) {
+},{"./graph":"../palette/graph.js","./getPalette":"../palette/getPalette.js","./worker.js":[["worker.451bb653.js","../palette/worker.js"],"worker.451bb653.map","../palette/worker.js"]}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _palette = require("../palette");
@@ -564,7 +564,6 @@ function displayPalette() {
   imgContainer.innerHTML = "<img class='img' src=".concat(src, " />");
 
   _palette.Palette.from(src).getPalette().then(function (colors) {
-    console.log(colors);
     var children = colors.reduce(function (prev, color) {
       var _color$value = _slicedToArray(color.value, 3),
           r = _color$value[0],
@@ -580,7 +579,6 @@ function displayPalette() {
 var img = document.getElementsByClassName('img')[0];
 
 _palette.Palette.from(img).getPalette().then(function (colors) {
-  console.log(colors);
   var children = colors.reduce(function (prev, color) {
     var _color$value2 = _slicedToArray(color.value, 3),
         r = _color$value2[0],
@@ -618,7 +616,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "12160" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "5137" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

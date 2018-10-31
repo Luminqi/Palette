@@ -9,7 +9,6 @@ function displayPalette () {
   const src =  window.URL.createObjectURL(image)
   imgContainer.innerHTML = `<img class='img' src=${src} />`
   Palette.from(src).getPalette().then(colors => {
-    console.log(colors)
     const children = colors.reduce((prev, color) => {
       const [r, g, b] = color.value
       return `${prev}<div class='color' style='background-color: rgb(${r}, ${g}, ${b})'></div>`
@@ -21,7 +20,6 @@ function displayPalette () {
 const img = document.getElementsByClassName('img')[0]
 
 Palette.from(img).getPalette().then(colors => {
-  console.log(colors)
   const children = colors.reduce((prev, color) => {
     const [r, g, b] = color.value
     return `${prev}<div class='color' style='background-color: rgb(${r}, ${g}, ${b})'></div>`

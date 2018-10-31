@@ -1,4 +1,4 @@
-import { Graph } from './color'
+import { Graph } from './graph'
 import { getPalette } from './getPalette'
 
 export const Palette = (function () {
