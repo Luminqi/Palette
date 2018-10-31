@@ -104,7 +104,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({"src/color.js":[function(require,module,exports) {
+})({"../palette/color.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -176,7 +176,7 @@ function () {
 }();
 
 exports.Graph = Graph;
-},{}],"src/getPalette.js":[function(require,module,exports) {
+},{}],"../palette/getPalette.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -462,20 +462,17 @@ function () {
 
   return Bin;
 }();
-},{}],"src/index.js":[function(require,module,exports) {
+},{}],"../palette/index.js":[function(require,module,exports) {
 "use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Palette = void 0;
 
 var _color = require("./color");
 
 var _getPalette = require("./getPalette");
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
-
-function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -512,7 +509,7 @@ var Palette = function () {
                 break;
               }
 
-              worker = new Worker("/worker.f6f31b3e.js");
+              worker = new Worker("/worker.451bb653.js");
               worker.postMessage(data);
               return _context.abrupt("return", new Promise(function (resolve) {
                 worker.onmessage = function (e) {
@@ -542,6 +539,20 @@ var Palette = function () {
   };
 }();
 
+exports.Palette = Palette;
+},{"./color":"../palette/color.js","./getPalette":"../palette/getPalette.js","./worker.js":[["worker.451bb653.js","../palette/worker.js"],"worker.451bb653.map","../palette/worker.js"]}],"index.js":[function(require,module,exports) {
+"use strict";
+
+var _palette = require("../palette");
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 var container = document.getElementById('container');
 var imgContainer = document.getElementById('imgContainer');
 var input = document.getElementById('input');
@@ -551,7 +562,8 @@ function displayPalette() {
   var image = input.files[0];
   var src = window.URL.createObjectURL(image);
   imgContainer.innerHTML = "<img class='img' src=".concat(src, " />");
-  Palette.from(src).getPalette().then(function (colors) {
+
+  _palette.Palette.from(src).getPalette().then(function (colors) {
     console.log(colors);
     var children = colors.reduce(function (prev, color) {
       var _color$value = _slicedToArray(color.value, 3),
@@ -566,7 +578,8 @@ function displayPalette() {
 }
 
 var img = document.getElementsByClassName('img')[0];
-Palette.from(img).getPalette().then(function (colors) {
+
+_palette.Palette.from(img).getPalette().then(function (colors) {
   console.log(colors);
   var children = colors.reduce(function (prev, color) {
     var _color$value2 = _slicedToArray(color.value, 3),
@@ -578,7 +591,7 @@ Palette.from(img).getPalette().then(function (colors) {
   }, '');
   container.innerHTML = children;
 });
-},{"./color":"src/color.js","./getPalette":"src/getPalette.js","./worker.js":[["worker.f6f31b3e.js","src/worker.js"],"worker.f6f31b3e.map","src/worker.js"]}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"../palette":"../palette/index.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -605,7 +618,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1189" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "12160" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
@@ -747,5 +760,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.js"], null)
-//# sourceMappingURL=/src.a2b27638.map
+},{}]},{},["../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
+//# sourceMappingURL=/demo.e31bb0bc.map
