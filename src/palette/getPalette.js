@@ -1,4 +1,5 @@
-export function getPalette (data) {
+export function getPalette (buffer) {
+  const data = new Uint8ClampedArray(buffer)
   const { sortedData, total } = processData(data)
   const binArr = binning(sortedData, total)
   const result = mergeBins(binArr)

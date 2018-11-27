@@ -37,12 +37,20 @@
         <div id='svg-container'></div>
       </div>
       <div id='imgContainer'>
-        <img src='../images/img10.jpg' alt='img' class='img'>
+        <img src='../images/img10.png' alt='img' class='img'>
       </div>
       <div class='caption'>Palette</div>
       <div id='container'></div>
     </div>
     <script src='../../node_modules/@babel/polyfill/dist/polyfill.min.js'></script>
+    <script type="text/javascript">
+      const docEl = document.documentElement
+      recalc = () => {
+        docEl.style.fontSize = 20 * (docEl.clientWidth / 1349) + 'px'
+      }
+      window.addEventListener('resize', recalc, false)
+      document.addEventListener('DOMContentLoaded', recalc, false)
+    </script>
     <script src='./button.js'></script>
     <script src='./index.js'></script>
   </body>

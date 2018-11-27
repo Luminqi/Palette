@@ -12,7 +12,8 @@ export const Palette = (function () {
     const data = img.imgData.data
     if (window.Worker) {
       const worker = new Worker('worker.js')
-      worker.postMessage(data)
+      const typedArray = new Uint8ClampedArray(data)
+      worker.postMessage(typedArray.buffer, [typedArray.buffer])
       return new Promise((resolve) => {
         worker.onmessage = function (e) {
           resolve(e.data)

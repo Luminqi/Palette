@@ -206,7 +206,9 @@ function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = 
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function getPalette(data) {
+function getPalette(buffer) {
+  var data = new Uint8ClampedArray(buffer);
+
   var _processData = processData(data),
       sortedData = _processData.sortedData,
       total = _processData.total;
@@ -492,7 +494,7 @@ var Palette = function () {
     var _ref = _asyncToGenerator(
     /*#__PURE__*/
     regeneratorRuntime.mark(function _callee() {
-      var img, data, worker;
+      var img, data, worker, typedArray;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -505,22 +507,23 @@ var Palette = function () {
               data = img.imgData.data;
 
               if (!window.Worker) {
-                _context.next = 10;
+                _context.next = 11;
                 break;
               }
 
               worker = new Worker("/worker.451bb653.js");
-              worker.postMessage(data);
+              typedArray = new Uint8ClampedArray(data);
+              worker.postMessage(typedArray.buffer, [typedArray.buffer]);
               return _context.abrupt("return", new Promise(function (resolve) {
                 worker.onmessage = function (e) {
                   resolve(e.data);
                 };
               }));
 
-            case 10:
+            case 11:
               return _context.abrupt("return", (0, _getPalette.getPalette)(data));
 
-            case 11:
+            case 12:
             case "end":
               return _context.stop();
           }
@@ -576,18 +579,20 @@ function displayPalette() {
   });
 }
 
-var img = document.getElementsByClassName('img')[0];
+window.addEventListener('load', function () {
+  var img = document.getElementsByClassName('img')[0];
 
-_palette.Palette.from(img).getPalette().then(function (colors) {
-  var children = colors.reduce(function (prev, color) {
-    var _color$value2 = _slicedToArray(color.value, 3),
-        r = _color$value2[0],
-        g = _color$value2[1],
-        b = _color$value2[2];
+  _palette.Palette.from(img).getPalette().then(function (colors) {
+    var children = colors.reduce(function (prev, color) {
+      var _color$value2 = _slicedToArray(color.value, 3),
+          r = _color$value2[0],
+          g = _color$value2[1],
+          b = _color$value2[2];
 
-    return "".concat(prev, "<div class='color' style='background-color: rgb(").concat(r, ", ").concat(g, ", ").concat(b, ")'></div>");
-  }, '');
-  container.innerHTML = children;
+      return "".concat(prev, "<div class='color' style='background-color: rgb(").concat(r, ", ").concat(g, ", ").concat(b, ")'></div>");
+    }, '');
+    container.innerHTML = children;
+  });
 });
 },{"../palette":"../palette/index.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -616,7 +621,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "5137" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "14090" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

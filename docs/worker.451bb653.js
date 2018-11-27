@@ -134,7 +134,9 @@ function _iterableToArrayLimit(arr, i) { var _arr = []; var _n = true; var _d = 
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function getPalette(data) {
+function getPalette(buffer) {
+  var data = new Uint8ClampedArray(buffer);
+
   var _processData = processData(data),
       sortedData = _processData.sortedData,
       total = _processData.total;
@@ -426,7 +428,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "5137" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "14090" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

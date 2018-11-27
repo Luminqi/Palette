@@ -1,20 +1,17 @@
-html {
-  font-size: 20px
-}
-
 body {
   background-color: #f3f3f3;
 }
 
 h1 {
-  text-align: center
+  text-align: center;
+  font-size: 20px;
 }
 
 #wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 50px 0;
+  margin: 2.5rem 0;
 }
 
 #input {
@@ -23,12 +20,11 @@ h1 {
 
 #imgContainer {
   width: 30rem;
-  
 }
 
 .img {
   width: 100%;
-  border-radius: 10px 10px 0 0;
+  border-radius: 0.5rem 0.5rem 0 0;
 }
 
 .caption {
@@ -48,8 +44,8 @@ h1 {
 }
 
 .color {
-  width: 4rem;
-  height: 2rem;
+  width: 80px;
+  height:40px;
   margin: 1px;
 }
 
@@ -62,16 +58,16 @@ h1 {
   font-family: "Gilroy ExtraBold", sans-serif;
   font-style: normal;
   font-weight: normal;
-  letter-spacing: 2px;
-  font-size: 22px;
+  letter-spacing: 0.1rem;
+  font-size: 1rem;
   text-transform: uppercase;
   background-color: #f4157e;
   color: #ffffff;
   appearance: none;
   border: none;
   border-radius: 10px;
-  width: 200px;
-  height: 80px;
+  width: 10rem;
+  height: 4rem;
   box-shadow: 0 10px 60px -10px #cd106e;
   cursor: pointer;
   transform-style: preserve-3d;

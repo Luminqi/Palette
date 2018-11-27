@@ -104,7 +104,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   // Override the current require with this new one
   return newRequire;
-})({"node_modules/vanilla-tilt/lib/vanilla-tilt.js":[function(require,module,exports) {
+})({"../../node_modules/vanilla-tilt/lib/vanilla-tilt.js":[function(require,module,exports) {
 'use strict';
 
 var classCallCheck = function (instance, Constructor) {
@@ -551,7 +551,7 @@ function handleClick() {
 }
 
 btn.addEventListener('click', handleClick);
-},{"vanilla-tilt":"node_modules/vanilla-tilt/lib/vanilla-tilt.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vanilla-tilt":"../../node_modules/vanilla-tilt/lib/vanilla-tilt.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -578,7 +578,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "5137" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "14090" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

@@ -17,12 +17,13 @@ function displayPalette () {
   })
 }
 
-const img = document.getElementsByClassName('img')[0]
-
-Palette.from(img).getPalette().then(colors => {
-  const children = colors.reduce((prev, color) => {
-    const [r, g, b] = color.value
-    return `${prev}<div class='color' style='background-color: rgb(${r}, ${g}, ${b})'></div>`
-  }, '')
-  container.innerHTML = children
+window.addEventListener('load', () => {
+  const img = document.getElementsByClassName('img')[0]
+  Palette.from(img).getPalette().then(colors => {
+    const children = colors.reduce((prev, color) => {
+      const [r, g, b] = color.value
+      return `${prev}<div class='color' style='background-color: rgb(${r}, ${g}, ${b})'></div>`
+    }, '')
+    container.innerHTML = children
+  })
 })
