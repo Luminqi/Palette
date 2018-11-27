@@ -543,10 +543,16 @@ var Palette = function () {
 }();
 
 exports.Palette = Palette;
-},{"./graph":"../palette/graph.js","./getPalette":"../palette/getPalette.js","./worker.js":[["worker.451bb653.js","../palette/worker.js"],"worker.451bb653.map","../palette/worker.js"]}],"index.js":[function(require,module,exports) {
+},{"./graph":"../palette/graph.js","./getPalette":"../palette/getPalette.js","./worker.js":[["worker.451bb653.js","../palette/worker.js"],"worker.451bb653.map","../palette/worker.js"]}],"../images/img10.png":[function(require,module,exports) {
+module.exports = "/img10.3bfae9d5.png";
+},{}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _palette = require("../palette");
+
+var _img = _interopRequireDefault(require("../images/img10.png"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
@@ -580,9 +586,7 @@ function displayPalette() {
 }
 
 window.addEventListener('load', function () {
-  var img = document.getElementsByClassName('img')[0];
-
-  _palette.Palette.from(img).getPalette().then(function (colors) {
+  _palette.Palette.from(_img.default).getPalette().then(function (colors) {
     var children = colors.reduce(function (prev, color) {
       var _color$value2 = _slicedToArray(color.value, 3),
           r = _color$value2[0],
@@ -594,7 +598,7 @@ window.addEventListener('load', function () {
     container.innerHTML = children;
   });
 });
-},{"../palette":"../palette/index.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"../palette":"../palette/index.js","../images/img10.png":"../images/img10.png"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -621,7 +625,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "14090" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "2322" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

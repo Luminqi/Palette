@@ -1,4 +1,5 @@
 import { Palette } from '../palette'
+import img from '../images/img10.png'
 
 const container = document.getElementById('container')
 const imgContainer = document.getElementById('imgContainer')
@@ -18,7 +19,6 @@ function displayPalette () {
 }
 
 window.addEventListener('load', () => {
-  const img = document.getElementsByClassName('img')[0]
   Palette.from(img).getPalette().then(colors => {
     const children = colors.reduce((prev, color) => {
       const [r, g, b] = color.value
